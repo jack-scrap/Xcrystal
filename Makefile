@@ -18,7 +18,7 @@ all: make
 main.o: main.cpp
 	$(CXX) -c $< -o $@ $(LDFLAGS)
 
-make: $(OBJ_STATIC) $(HDR)
+make: $(OBJ_STATIC)
 	$(CXX) $^ $(LDFLAGS)
 
 clean:
