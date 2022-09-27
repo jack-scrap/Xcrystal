@@ -3,10 +3,7 @@ CXX=g++
 STATIC=main.cpp disp.cpp prog.cpp util.cpp
 OBJ_STATIC=$(STATIC:%.cpp=%.o)
 
-GL=-lGLEW -lGL
-SDL=-lSDL2
-LDFLAGS+=$(SDL)
-LDFLAGS+=$(GL)
+LDFLAGS=-lGLEW -lGL -lSDL2
 
 .PHONY: all
 all: make
