@@ -9,10 +9,10 @@ LDFLAGS=-lGLEW -lGL -lSDL2
 all: make
 
 %.o: %.cpp %.h
-	$(CXX) -c $< -o $@ $(LDFLAGS)
+	$(CXX) -c $< -o $@
 
 main.o: main.cpp
-	$(CXX) -c $< -o $@ $(LDFLAGS)
+	$(CXX) -c $< -o $@
 
 .PHONY: make
 make: $(OBJ_STATIC)
