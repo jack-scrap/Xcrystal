@@ -17,7 +17,7 @@ main.o: main.cpp
 
 .PHONY: make
 make: $(OBJ)
-	$(CXX) $^ $(LDFLAGS)
+	$(CXX) $(OBJ) $(LDFLAGS)
 
 .PHONY: clean
 clean:
