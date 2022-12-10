@@ -48,7 +48,7 @@ int main() {
 		glBindVertexArray(vao);
 		prog.use();
 
-		glDrawArrays(GL_TRIANGLES, 0, 3 * 3);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
 
 		prog.unUse();
 		glBindVertexArray(0);
