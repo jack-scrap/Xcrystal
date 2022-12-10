@@ -27,11 +27,13 @@ int main() {
 
 	Prog prog("shad", "shad");
 
+	prog.use();
+
 	GLint attrPos = glGetAttribLocation(prog._id, "pos");
 	glVertexAttribPointer(attrPos, 3, GL_FLOAT, GL_FALSE, 0, (GLvoid*) 0);
 	glEnableVertexAttribArray(attrPos);
 
-	prog.use();
+	prog.unUse();
 
 	SDL_Event e;
 	while (disp.open) {
@@ -43,7 +45,11 @@ int main() {
 
 		disp.clear(0, 0, 0, 1);
 
+		prog.use();
+
 		glDrawArrays(GL_TRIANGLES, 0, 3 * 3);
+
+		prog.unUse();
 
 		disp.update();
 	}
