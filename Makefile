@@ -1,7 +1,7 @@
 CXX=g++
 
-STATIC=main.cpp disp.cpp prog.cpp util.cpp
-OBJ_STATIC=$(STATIC:%.cpp=%.o)
+SRC=main.cpp disp.cpp prog.cpp util.cpp
+OBJ=$(SRC:%.cpp=%.o)
 
 LDFLAGS=-lGLEW -lGL -lSDL2
 
@@ -15,7 +15,7 @@ main.o: main.cpp
 	$(CXX) -c $< -o $@
 
 .PHONY: make
-make: $(OBJ_STATIC)
+make: $(OBJ)
 	$(CXX) $^ $(LDFLAGS)
 
 .PHONY: clean
