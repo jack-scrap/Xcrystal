@@ -1,3 +1,5 @@
+EXEC=a.out
+
 CXX=g++
 
 SRC=main.cpp disp.cpp prog.cpp util.cpp
@@ -21,4 +23,4 @@ make: $(OBJ)
 
 .PHONY: clean
 clean:
-	rm *.o a.out
+	rm *.o $(EXEC)
