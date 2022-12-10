@@ -45,11 +45,13 @@ int main() {
 
 		disp.clear(0, 0, 0, 1);
 
+		glBindVertexArray(vao);
 		prog.use();
 
 		glDrawArrays(GL_TRIANGLES, 0, 3 * 3);
 
 		prog.unUse();
+		glBindVertexArray(0);
 
 		disp.update();
 	}
