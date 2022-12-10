@@ -6,24 +6,35 @@
 #include "prog.h"
 #include "util.h"
 
-Shad::Shad(std::string name, bool vtx) {
+Shad::Shad(std::string name, int stage) {
 	std::string ext;
 	GLenum type;
-	if (vtx) {
-		ext = "vs";
-		type = GL_VERTEX_SHADER;
-	} else {
-		ext = "fs";
-		type = GL_FRAGMENT_SHADER;
+	switch (stage) {
+		case Prog::VTX:
+			ext = "vs";
+			type = GL_VERTEX_SHADER;
+
+			break;
+
+		case Prog::FRAG:
+			ext = "fs";
+			type = GL_FRAGMENT_SHADER;
+
+			break;
+
+		default:
+			std::cerr << "Error: Invalid enumeration for shader" << std::endl;
+
+			break;
 	}
 
-	std::string path = std::string(name) + std::string(".") + ext;
+	std::string path = "res/shad/" + name + "." + ext;
 
-	std::string txt = util::rd(path);
-	const char* src = txt.c_str();
+	std::string buff = util::rd(path);
+	const char* src = buff.c_str();
 
 	GLint succ;
-	char buff[] = "";
+	char errBuff[] = "";
 
 	_id = glCreateShader(type);
 	glShaderSource(_id, 1, &src, NULL);
@@ -31,9 +42,9 @@ Shad::Shad(std::string name, bool vtx) {
 
 	glGetShaderiv(_id, GL_COMPILE_STATUS, &succ);
 	if (!succ) {
-		glGetShaderInfoLog(_id, 512, NULL, buff);
+		glGetShaderInfoLog(_id, 512, NULL, errBuff);
 		std::cout << "Error: " << std::endl;
-		std::cout << buff << std::endl;
+		std::cout << errBuff << std::endl;
 	}
 }
 
@@ -41,10 +52,10 @@ Shad::~Shad() {
 	glDeleteShader(_id);
 }
 
-Prog::Prog(std::string vtx, std::string frag) {
-	Shad _vtx(vtx, 1);
+Prog::Prog(std::string vtxName, std::string fragName) {
+	Shad _vtx(vtxName, VTX);
 
-	Shad _frag(frag, 0);
+	Shad _frag(fragName, FRAG);
 
 	_id = glCreateProgram();
 	glAttachShader(_id, _vtx._id);
