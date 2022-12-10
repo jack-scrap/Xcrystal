@@ -9,7 +9,7 @@ OBJ=$(SRC:%.cpp=%.o)
 LDFLAGS=-lGLEW -lGL -lSDL2
 
 .PHONY: all
-all: make
+all: $(EXEC)
 
 %.o: %.cpp %.h
 	$(CXX) -c $< -o $@
@@ -17,8 +17,7 @@ all: make
 main.o: main.cpp
 	$(CXX) -c $< -o $@
 
-.PHONY: make
-make: $(OBJ)
+$(EXEC): $(OBJ)
 	$(CXX) $(OBJ) -o $(EXEC) $(LDFLAGS)
 
 .PHONY: clean
