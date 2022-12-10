@@ -56,6 +56,6 @@ int main() {
 		disp.update();
 	}
 
-	glDeleteBuffers(1, &vao);
 	glDeleteBuffers(1, &vbo);
+	glDeleteBuffers(1, &vao);
 }
