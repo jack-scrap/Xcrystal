@@ -25,7 +25,7 @@ int main() {
 	};
 	glBufferData(GL_ARRAY_BUFFER, sizeof vtc, vtc, GL_STATIC_DRAW);
 
-	Prog prog("shad", "shad");
+	Prog prog("main", "solid");
 
 	prog.use();
 
