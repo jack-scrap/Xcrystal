@@ -23,7 +23,7 @@ class Prog {
 
 		~Prog();
 		
-		enum stage {
+		enum {
 			VTX,
 			FRAG
 		};
