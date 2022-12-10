@@ -1,4 +1,4 @@
-EXEC=a.out
+EXEC=tri
 
 CXX=g++
 
