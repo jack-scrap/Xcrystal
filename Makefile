@@ -1,6 +1,7 @@
 CXX=g++
 
 SRC=main.cpp disp.cpp prog.cpp util.cpp
+
 OBJ=$(SRC:%.cpp=%.o)
 
 LDFLAGS=-lGLEW -lGL -lSDL2
