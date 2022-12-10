@@ -10,12 +10,10 @@
 int main() {
 	Disp disp("asdf", 800, 600);
 
-	// data
 	GLuint vao;
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
 
-	// position
 	GLuint vbo;
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
@@ -27,15 +25,12 @@ int main() {
 	};
 	glBufferData(GL_ARRAY_BUFFER, sizeof vtc, vtc, GL_STATIC_DRAW);
 
-	// shader
 	Prog prog("shad", "shad");
 
-	/// attribute
 	GLint attrPos = glGetAttribLocation(prog._id, "pos");
 	glVertexAttribPointer(attrPos, 3, GL_FLOAT, GL_FALSE, 0, (GLvoid*) 0);
 	glEnableVertexAttribArray(attrPos);
 
-	// initialize
 	prog.use();
 
 	SDL_Event e;
