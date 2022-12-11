@@ -18,7 +18,7 @@ int main() {
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
-	GLfloat vtc[3 * 2] = {
+	const GLfloat vtc[3 * 2] = {
 		-1.0, -1.0,
 		1.0, -1.0,
 		0.0, 1.0
