@@ -1,4 +1,4 @@
-EXEC=tri
+EXEC=Xcrystal
 
 CXX=g++
 
