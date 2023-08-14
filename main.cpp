@@ -19,9 +19,9 @@ int main() {
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
 	const GLfloat vtc[3 * 3] = {
-		-1.0, -1.0,
-		1.0, -1.0,
-		0.0, 1.0
+		-1.0, -1.0, 0.0,
+		1.0, -1.0, 0.0,
+		0.0, 1.0, 0.0
 	};
 	glBufferData(GL_ARRAY_BUFFER, sizeof vtc, vtc, GL_STATIC_DRAW);
 
