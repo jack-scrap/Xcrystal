@@ -18,10 +18,38 @@ int main() {
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
-	const GLfloat vtc[3 * 3] = {
-		-1.0, -1.0, 0.0,
-		1.0, -1.0, 0.0,
-		0.0, 1.0, 0.0
+	const GLfloat vtc[] = {
+		0.0, -2.0, 0.0,
+		-1.0, 0.0, -1.0,
+		1.0, 0.0, -1.0,
+
+		0.0, -2.0, 0.0,
+		-1.0, 0.0, 1.0,
+		1.0, 0.0, 1.0,
+
+		0.0, -2.0, 0.0,
+		-1.0, 0.0, -1.0,
+		-1.0, 0.0, 1.0,
+
+		0.0, -2.0, 0.0,
+		1.0, 0.0, -1.0,
+		1.0, 0.0, 1.0,
+
+		0.0, 2.0, 0.0,
+		-1.0, 0.0, -1.0,
+		1.0, 0.0, -1.0,
+
+		0.0, 2.0, 0.0,
+		-1.0, 0.0, 1.0,
+		1.0, 0.0, 1.0,
+
+		0.0, 2.0, 0.0,
+		-1.0, 0.0, -1.0,
+		-1.0, 0.0, 1.0,
+
+		0.0, 2.0, 0.0,
+		1.0, 0.0, -1.0,
+		1.0, 0.0, 1.0
 	};
 	glBufferData(GL_ARRAY_BUFFER, sizeof vtc, vtc, GL_STATIC_DRAW);
 
@@ -67,7 +95,7 @@ int main() {
 
 		glUniformMatrix4fv(uniModel, 1, GL_FALSE, glm::value_ptr(model));
 
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glDrawArrays(GL_TRIANGLES, 0, 2 * 2 * 2 * 3);
 
 		prog.unUse();
 		glBindVertexArray(0);
