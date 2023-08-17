@@ -49,6 +49,7 @@ int main() {
 	prog.unUse();
 
 	SDL_Event e;
+	unsigned int i = 0;
 	while (disp.open) {
 		while (SDL_PollEvent(&e)) {
 			if (e.type == SDL_QUIT) {
@@ -61,7 +62,8 @@ int main() {
 		glBindVertexArray(vao);
 		prog.use();
 
-		model = glm::rotate(model, (GLfloat) 0.01, glm::vec3(0, 1, 0));
+		model = glm::translate(glm::mat4(1.0), glm::vec3(0, sin(i / 50.0) / 5.0, 0));
+		model = glm::rotate(model, (GLfloat) (i / 100.0), glm::vec3(0, 1, 0));
 
 		glUniformMatrix4fv(uniModel, 1, GL_FALSE, glm::value_ptr(model));
 
@@ -71,6 +73,8 @@ int main() {
 		glBindVertexArray(0);
 
 		disp.update();
+
+		i++;
 	}
 
 	glDeleteBuffers(1, &vbo);
