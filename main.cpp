@@ -8,7 +8,7 @@
 #include "util.h"
 
 int main() {
-	Disp disp("asdf", 240, 180);
+	Disp disp("Xcrystal", 240, 180);
 
 	GLuint vao;
 	glGenVertexArrays(1, &vao);
