@@ -58,7 +58,7 @@ int main() {
 	glm::mat4 view = glm::lookAt(glm::vec3(5, 7, 5), glm::vec3(0, 2, 0), glm::vec3(0, 1, 0));
 	glm::mat4 proj = glm::perspective(glm::radians(45.0), 240.0 / 180.0, 0.1, 100.0);
 
-	Prog prog("main", "solid");
+	Prog prog("main", "dir");
 
 	prog.use();
 
@@ -96,7 +96,7 @@ int main() {
 	};
 	glBufferData(GL_ARRAY_BUFFER, sizeof vtcGround, vtcGround, GL_STATIC_DRAW);
 
-	Prog progGround("main", "ground");
+	Prog progGround("main", "solid");
 
 	glm::mat4 modelGround = glm::mat4(1.0);
 

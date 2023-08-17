@@ -4,7 +4,7 @@ in vec3 _pos;
 
 vec3 sun = vec3(1.0, 0.0, -1.0);
 
-const vec3 col = vec3(100, 100, 100);
+const vec3 col = vec3(255, 100, 255);
 
 void main() {
 	vec3 normFace = normalize(cross(dFdx(_pos), dFdy(_pos)));
