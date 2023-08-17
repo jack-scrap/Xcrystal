@@ -2,7 +2,7 @@
 
 in vec3 _pos;
 
-vec3 sun = vec3(1.0, 0.0, -1.0);
+vec3 sun = vec3(0.3, 1.0, -0.7);
 
 const vec3 col = vec3(255, 100, 255);
 
